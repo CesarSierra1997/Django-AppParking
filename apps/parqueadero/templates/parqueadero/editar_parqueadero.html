@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Editar Parqueadero - Mi Aplicación de Parqueadero
+{% endblock %}
+
+{% block content %}
+    <h2>Editar Parqueadero</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Visitantes
+{% endblock %}
+
+{% block content %}
+    <h2>Parqueadero lista de Visitantes</h2>
+    <ul>
+        {% for visitante in parqueadero_visitantes %}  
+            <li>Nombre: {{ visitante.nombre }} - documento: {{ visitante.documento }}</li>
+            <p>tipo vehiculo: {{visitante.parqueadero.tipoVehiculo}} placa: {{ visitante.placa }}</p>
+            <li>Apartamento: {{visitante.apartamento }} parqueadero visitante No. {{ visitante.parqueadero.id}} </li>
+            <p><a href="">Editar</a> | <a href="">Borrar</a></p>
+        {% endfor %}
+    </ul>
+{% endblock %}

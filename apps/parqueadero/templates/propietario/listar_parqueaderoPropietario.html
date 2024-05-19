@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Propietarios
+{% endblock %}
+
+{% block content %}
+    <h2>Parqueadero lista de Propietarios</h2>
+    <ul>
+        {% for propietario in parqueadero_propietarios %}  
+            <li>Apto: {{ propietario.apartamento }} - Nombre: {{ propietario.nombre }}</li>
+            <p>tipo vehiculo: {{propietario.parqueadero.tipoVehiculo}} placa: {{ propietario.placa }}</p>
+            <p><a href="">Editar</a> | <a href="">Borrar</a></p>
+        {% endfor %}
+    </ul>
+{% endblock %}

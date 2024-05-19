@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <title>{% block title %}Mi aplicación{% endblock %}</title>
+</head>
+<body class="bg-light bg-gradient d-flex flex-column min-vh-100">
+    <header class="card m-3 p-1 text-center">
+        <a style="font-size: xx-large;" class="nav-link text-info" href="{% url 'base' %}"><i class="fa-solid fa-square-parking"></i> App Parking web 1.0</a>
+        <nav class="nav m-auto">
+            <ul class="nav nav-pills">
+                <li  class="nav-item">
+                    <a class="nav-link btn btn-info border border-info m-1" href="{% url 'crear_parqueadero' %}">Crear Parqueadero</a>
+                    <a class="nav-link btn btn-info border border-info m-1" href="{% url 'lista_parqueaderos' %}">Lista de parqueaderos</a>
+                </li>
+                <li  class="nav-item">
+                    <a class="nav-link btn btn-info border border-info m-1" href="{% url 'agregar_parqueaderoPropietario' %}">Agregar Parqueadero Propietario</a>
+                    <a class="nav-link btn btn-info border border-info m-1" href="{% url 'listar_parqueaderoPropietario' %}">Lista de propietarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-info border border-info m-1" href="{% url 'agregar_parqueaderoVisitante' %}">Agregar Parqueadero Visitante</a>
+                    <a class="nav-link btn btn-info border border-info m-1" href="{% url 'listar_parqueaderoVisitante' %}">Lista de visitantes</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="card card-body mt-1 m-3 p-4">
+
+        {% block content %}
+        <h5>Bienvenido a la app parking</h5>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam eos id ducimus. Repudiandae deleniti dolores odit vel nemo inventore beatae, amet, ea sit animi at accusamus officiis maxime doloribus laboriosam?</p>
+        {% endblock %}
+    </main>
+
+    <footer class="text-center mt-auto ">
+        <p>&copy; 2024 Mi Aplicación de Parqueadero</p>
+    </footer>
+</body>
+</html>

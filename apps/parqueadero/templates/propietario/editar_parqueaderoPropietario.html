@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Editar Parqueadero de propietario
+{% endblock %}
+
+{% block content %}
+    <h2>Editar Parqueadero propietario</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Editar Parqueadero de visitante
+{% endblock %}
+
+{% block content %}
+    <h2>Editar Parqueadero visitante</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+{% endblock %}

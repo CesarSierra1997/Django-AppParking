@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Lista de Parqueaderos - Mi Aplicación de Parqueadero
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center">Lista de Parqueaderos</h2>
+<div class="row">
+    {% if parqPropietarios %}
+    <div class="col-md-6 bg-light">
+        <h4 class="text-center">Parqueaderos para Residentes</h4>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            {% for parqueadero in parqPropietarios %}
+            <div class="col mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Parqueadero #{{ parqueadero.numero }}</h5>
+                        <p class="card-text">{{ parqueadero.tipo }} - {{ parqueadero.tipoVehiculo }}</p>
+                        <p class="card-text">{{ parqueadero.conjunto.nombre }}</p>
+                        {% if not parqueadero.activo %}
+                        <strong style="color: red;">Parqueadero inactivo</strong>
+                        {% endif %}
+                        <div class="text-center mt-3">
+                            <a href="{% url 'editar_parqueadero' parqueadero.pk %}" class="btn btn-primary">Editar</a>
+                            <a href="{% url 'borrar_parqueadero' parqueadero.pk %}" class="btn btn-danger">Borrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% if parqVisitantes %}
+    <div class="col-md-6">
+        <h4 class="text-center">Parqueaderos para Visitantes</h4>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            {% for parqueadero in parqVisitantes %}
+            <div class="col mb-4">
+                <div class="card">
+                    <div class="card-body" style="background-color: greenyellow;">
+                        <h5 class="card-title">Parqueadero #{{ parqueadero.numero }}</h5>
+                        <p class="card-text">{{ parqueadero.tipo }} - {{ parqueadero.tipoVehiculo }}</p>
+                        <p class="card-text">{{ parqueadero.conjunto.nombre }}</p>
+                        {% if not parqueadero.activo %}
+                        <strong style="color: red;">Parqueadero inactivo</strong>
+                        {% endif %}
+                        <div class="text-center mt-3">
+                            <a href="{% url 'editar_parqueadero' parqueadero.pk %}" class="btn btn-primary">Editar</a>
+                            <a href="{% url 'borrar_parqueadero' parqueadero.pk %}" class="btn btn-danger">Borrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
